@@ -1,6 +1,7 @@
 package test;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
@@ -12,20 +13,24 @@ public class Test1 {
     protected WebDriver driver;
 
     @Test
-    public void test(){
+    public void test() {
 
 
-        //String driverToUse = System.getenv("BROWSER");
-        //System.out.println(driverToUse);
+        String driverToUse = System.getenv("BROWSER") != null ? System.getenv("BROWSER") : System.setProperty("BROWSER", "Firefox");
+        System.out.println(driverToUse);
+        //String driverToUse = "Chrome";
 
-        //if(driverToUse.equalsIgnoreCase("Firefox")) {
+        if (driverToUse.equalsIgnoreCase("Firefox")) {
             driver = new FirefoxDriver();
-        //}
-        driver.get("http://google.co.uk");
+        }else if(driverToUse.equalsIgnoreCase("Chrome")){
+            System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/chromedriver/");
+            driver = new ChromeDriver();
+        }
+            driver.get("http://google.co.uk");
 
-        System.out.println("***********Console output message********");
-        System.out.println(driver.getPageSource());
-        driver.quit();
+            System.out.println("***********Console output message********");
+            System.out.println(driver.getTitle());
+            driver.quit();
+        }
+
     }
-
-}
