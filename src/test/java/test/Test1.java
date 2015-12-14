@@ -11,7 +11,12 @@ public class Test1 {
 
     @Test
     public void test(){
-        System.out.println("Console output message");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("http://google.co.uk");
+
+        System.out.println("***********Console output message********");
+        System.out.println(driver.getPageSource());
+        driver.quit();
     }
 
 }
