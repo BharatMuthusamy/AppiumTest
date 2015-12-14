@@ -15,7 +15,8 @@ public class Test1 {
     public void test(){
 
 
-        String driverToUse = System.getProperty("BROWSER","chrome");
+        String driverToUse = System.getenv("BROWSER");
+        System.out.println(driverToUse);
 
         if(driverToUse.equalsIgnoreCase("Firefox")) {
             driver = new FirefoxDriver();
