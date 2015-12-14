@@ -15,12 +15,12 @@ public class Test1 {
     public void test(){
 
 
-        String driverToUse = System.getenv("BROWSER");
-        System.out.println(driverToUse);
+        //String driverToUse = System.getenv("BROWSER");
+        //System.out.println(driverToUse);
 
-        if(driverToUse.equalsIgnoreCase("Firefox")) {
+        //if(driverToUse.equalsIgnoreCase("Firefox")) {
             driver = new FirefoxDriver();
-        }
+        //}
         driver.get("http://google.co.uk");
 
         System.out.println("***********Console output message********");
