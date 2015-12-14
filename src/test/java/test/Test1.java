@@ -9,9 +9,17 @@ import org.testng.annotations.Test;
  */
 public class Test1 {
 
+    protected WebDriver driver;
+
     @Test
     public void test(){
-        WebDriver driver = new FirefoxDriver();
+
+
+        String driverToUse = System.getProperty("BROWSER","chrome");
+
+        if(driverToUse.equalsIgnoreCase("Firefox")) {
+            driver = new FirefoxDriver();
+        }
         driver.get("http://google.co.uk");
 
         System.out.println("***********Console output message********");
